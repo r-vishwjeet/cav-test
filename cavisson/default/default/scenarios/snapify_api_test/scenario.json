@@ -1,0 +1,999 @@
+{
+    "configuration": {
+        "isFlow": "yes",
+        "testname": "default/default/snapify_api_test"
+    },
+    "lastModifedBy": "neeraj@cavisson.com",
+    "description": "",
+    "priority": "",
+    "preTest": [],
+    "postTest": [],
+    "version": "1.0",
+    "tags": [],
+    "defaultScriptType": "c",
+    "schedule": [
+        {
+            "duration": "00:01:00",
+            "script": "Snapify_REST_API",
+            "concurrency": 1
+        }
+    ],
+    "scenario": {
+        "NS_GENERATOR": {
+            "_G": [
+                []
+            ]
+        },
+        "GEN_LOCATION": {
+            "_G": [
+                []
+            ]
+        },
+        "NUM_USERS": {
+            "_G": [
+                []
+            ]
+        },
+        "G_URL": {},
+        "G_NEW_USER_ON_SESSION": {
+            "ALL": [
+                [
+                    "1",
+                    "0",
+                    "0"
+                ]
+            ]
+        },
+        "G_OVERRIDE_RECORDED_THINK_TIME": {
+            "ALL": [
+                [
+                    "ALL",
+                    "1"
+                ]
+            ]
+        },
+        "G_DATADIR": {
+            "ALL": [
+                [
+                    "0",
+                    "NA"
+                ]
+            ],
+            "Snapify_REST_API": [
+                [
+                    "0",
+                    "NA"
+                ]
+            ]
+        },
+        "G_FIRST_SESSION_PACING": {
+            "ALL": [
+                [
+                    "0"
+                ]
+            ]
+        },
+        "NH_SCENARIO": {
+            "_G": [
+                [],
+                [],
+                [],
+                [],
+                [],
+                []
+            ]
+        },
+        "G_PAGE_THINK_TIME": {
+            "ALL": [
+                [
+                    "ALL",
+                    "2",
+                    "1000"
+                ]
+            ]
+        },
+        "G_SESSION_PACING": {
+            "ALL": [
+                [
+                    "1",
+                    "0",
+                    "1000"
+                ]
+            ]
+        },
+        "TARGET_RATE": {
+            "_G": [
+                []
+            ]
+        },
+        "SCHEDULE": {
+            "_G": [
+                [
+                    "ALL",
+                    "RampUp",
+                    "RAMP_UP",
+                    "ALL",
+                    "TIME",
+                    "00:01:00",
+                    "LINEARLY"
+                ],
+                [
+                    "ALL",
+                    "Stabilize",
+                    "STABILIZATION",
+                    "TIME",
+                    "00:01:00"
+                ],
+                [
+                    "ALL",
+                    "Duration",
+                    "DURATION",
+                    "SESSIONS",
+                    "10",
+                    "0"
+                ],
+                [
+                    "ALL",
+                    "RampDown",
+                    "RAMP_DOWN",
+                    "ALL",
+                    "TIME",
+                    "00:01:00",
+                    "LINEARLY"
+                ]
+            ]
+        },
+        "NS_GENERATOR_MODE": {
+            "_G": [
+                [
+                    ""
+                ]
+            ]
+        },
+        "TNAME": {
+            "_G": [
+                [
+                    "Test"
+                ]
+            ]
+        },
+        "G_TRACING": {
+            "ALL": [
+                [
+                    "0",
+                    "1",
+                    "1",
+                    "0",
+                    "0",
+                    "1",
+                    "1",
+                    "1"
+                ]
+            ]
+        },
+        "RUNTIME_USER_SESSION_PCT": {
+            "_G": [
+                []
+            ]
+        },
+        "SCHEDULE_TYPE": {
+            "_G": [
+                [
+                    "SIMPLE"
+                ]
+            ]
+        },
+        "GEN_LOCATION_MODE": {
+            "_G": [
+                [
+                    "0"
+                ]
+            ]
+        },
+        "DEBUG_TRACE": {
+            "_G": [
+                [
+                    "0"
+                ]
+            ]
+        },
+        "G_SCRIPT_RUNLOGIC": {
+            "_G": [
+                []
+            ]
+        },
+        "SCHEDULE_BY": {
+            "_G": [
+                [
+                    "SCENARIO"
+                ]
+            ]
+        },
+        "STYPE": {
+            "_G": [
+                [
+                    "FIX_CONCURRENT_USERS"
+                ]
+            ]
+        },
+        "SGRP": {
+            "_G": [
+                [
+                    "Snapify_REST_API",
+                    "NA",
+                    "NA",
+                    "Internet",
+                    "0",
+                    "default/default/.snapify_api_test_Snapify_REST_API",
+                    "1",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        "PROF_PCT_MODE": {
+            "_G": [
+                [
+                    "NUM"
+                ]
+            ]
+        }
+    },
+    "scripts": {
+        "Snapify_REST_API": {
+            "headers": {},
+            "scriptMode": "visual",
+            "runlogic": [
+                {
+                    "isDefault": true,
+                    "system": true,
+                    "name": "runlogic"
+                },
+                {
+                    "isDefault": false,
+                    "name": "NeerajTest"
+                }
+            ],
+            "recordingProfile": "default.prof",
+            "type": "API",
+            "assertionsV2": [],
+            "flows": {
+                "Orders": {
+                    "enable": true,
+                    "requests": [
+                        {
+                            "headers": {
+                                "Content-Type": "application/json"
+                            },
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "POST",
+                            "thinkTime": "",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_Orders_Place_Order.text",
+                            "label": "Place_Order",
+                            "url": "{baseUrl}/api/orders/place"
+                        },
+                        {
+                            "headers": {
+                                "Content-Type": "application/json"
+                            },
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "POST",
+                            "thinkTime": "0",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_Orders_.text",
+                            "label": "",
+                            "url": ""
+                        },
+                        {
+                            "headers": {},
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "GET",
+                            "thinkTime": "",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_Orders_Get_Order_by_ID.undefined",
+                            "label": "Get_Order_by_ID",
+                            "url": "{baseUrl}/api/orders/1"
+                        },
+                        {
+                            "headers": {},
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "GET",
+                            "thinkTime": "0",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_Orders_.text",
+                            "label": "",
+                            "url": ""
+                        },
+                        {
+                            "headers": {},
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "GET",
+                            "thinkTime": "",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_Orders_Get_User_Orders.undefined",
+                            "label": "Get_User_Orders",
+                            "url": "{baseUrl}/api/orders/user"
+                        },
+                        {
+                            "headers": {},
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "GET",
+                            "thinkTime": "0",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_Orders_.text",
+                            "label": "",
+                            "url": ""
+                        }
+                    ],
+                    "steps": [],
+                    "order": 3
+                },
+                "Products": {
+                    "enable": true,
+                    "requests": [
+                        {
+                            "headers": {},
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "GET",
+                            "thinkTime": "",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_Products_Get_All_Products.undefined",
+                            "label": "Get_All_Products",
+                            "url": "{baseUrl}/api/products"
+                        },
+                        {
+                            "headers": {},
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "GET",
+                            "thinkTime": "0",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_Products_.text",
+                            "label": "",
+                            "url": ""
+                        },
+                        {
+                            "headers": {},
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "GET",
+                            "thinkTime": "",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_Products_Get_Product_by_ID.undefined",
+                            "label": "Get_Product_by_ID",
+                            "url": "{baseUrl}/api/products/1"
+                        },
+                        {
+                            "headers": {},
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "GET",
+                            "thinkTime": "0",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_Products_.text",
+                            "label": "",
+                            "url": ""
+                        },
+                        {
+                            "headers": {},
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "GET",
+                            "thinkTime": "",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_Products_Search_Products.undefined",
+                            "label": "Search_Products",
+                            "url": "{baseUrl}/api/products/search?q=laptop"
+                        },
+                        {
+                            "headers": {},
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "GET",
+                            "thinkTime": "0",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_Products_.text",
+                            "label": "",
+                            "url": ""
+                        },
+                        {
+                            "headers": {},
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "GET",
+                            "thinkTime": "",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_Products_Get_Trending_Products.undefined",
+                            "label": "Get_Trending_Products",
+                            "url": "{baseUrl}/api/products/trending"
+                        },
+                        {
+                            "headers": {},
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "GET",
+                            "thinkTime": "0",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_Products_.text",
+                            "label": "",
+                            "url": ""
+                        }
+                    ],
+                    "steps": [],
+                    "order": 1
+                },
+                "Register": {
+                    "enable": true,
+                    "requests": [
+                        {
+                            "headers": {
+                                "Content-Type": "application/json"
+                            },
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "POST",
+                            "thinkTime": "",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_Register_Register_User.text",
+                            "label": "Register_User",
+                            "url": "{baseUrl}/api/auth/register"
+                        },
+                        {
+                            "headers": {
+                                "Content-Type": "application/json"
+                            },
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "POST",
+                            "thinkTime": "0",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_Register_.text",
+                            "label": "",
+                            "url": ""
+                        }
+                    ],
+                    "steps": [],
+                    "order": 5
+                },
+                "Authentication": {
+                    "enable": true,
+                    "requests": [
+                        {
+                            "headers": {
+                                "Content-Type": "application/json"
+                            },
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "POST",
+                            "thinkTime": "",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_Authentication_Login_User.text",
+                            "label": "Login_User",
+                            "url": "{baseUrl}/api/auth/login"
+                        },
+                        {
+                            "headers": {
+                                "Content-Type": "application/json"
+                            },
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "POST",
+                            "thinkTime": "0",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_Authentication_.text",
+                            "label": "",
+                            "url": ""
+                        },
+                        {
+                            "headers": {},
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "GET",
+                            "thinkTime": "",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_Authentication_Get_Current_User.undefined",
+                            "label": "Get_Current_User",
+                            "url": "{baseUrl}/api/auth/user"
+                        },
+                        {
+                            "headers": {},
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "GET",
+                            "thinkTime": "0",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_Authentication_.text",
+                            "label": "",
+                            "url": ""
+                        }
+                    ],
+                    "steps": [],
+                    "order": 0
+                },
+                "listProduct": {
+                    "enable": true,
+                    "requests": [
+                        {
+                            "headers": {},
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "GET",
+                            "thinkTime": "",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_listProduct_listProduct.undefined",
+                            "label": "listProduct",
+                            "url": "{baseUrl}/api/products"
+                        },
+                        {
+                            "headers": {},
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "GET",
+                            "thinkTime": "0",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_listProduct_.text",
+                            "label": "",
+                            "url": ""
+                        }
+                    ],
+                    "steps": [],
+                    "order": 7
+                },
+                "Logout": {
+                    "enable": true,
+                    "requests": [
+                        {
+                            "headers": {},
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "POST",
+                            "thinkTime": "",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_Logout_Logout_User.undefined",
+                            "label": "Logout_User",
+                            "url": "{baseUrl}/api/auth/logout"
+                        },
+                        {
+                            "headers": {},
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "POST",
+                            "thinkTime": "0",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_Logout_.text",
+                            "label": "",
+                            "url": ""
+                        }
+                    ],
+                    "steps": [],
+                    "order": 4
+                },
+                "Cart": {
+                    "enable": true,
+                    "requests": [
+                        {
+                            "headers": {},
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "GET",
+                            "thinkTime": "",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_Cart_Get_Cart.undefined",
+                            "label": "Get_Cart",
+                            "url": "{baseUrl}/api/cart"
+                        },
+                        {
+                            "headers": {},
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "GET",
+                            "thinkTime": "0",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_Cart_.text",
+                            "label": "",
+                            "url": ""
+                        },
+                        {
+                            "headers": {},
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "POST",
+                            "thinkTime": "",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_Cart_Add_to_Cart.undefined",
+                            "label": "Add_to_Cart",
+                            "url": "{baseUrl}/api/cart/add?productId=1&quantity=2"
+                        },
+                        {
+                            "headers": {},
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "POST",
+                            "thinkTime": "0",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_Cart_.text",
+                            "label": "",
+                            "url": ""
+                        },
+                        {
+                            "headers": {},
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "PUT",
+                            "thinkTime": "",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_Cart_Update_Cart_Item.undefined",
+                            "label": "Update_Cart_Item",
+                            "url": "{baseUrl}/api/cart/update?productId=1&quantity=3"
+                        },
+                        {
+                            "headers": {},
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "PUT",
+                            "thinkTime": "0",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_Cart_.text",
+                            "label": "",
+                            "url": ""
+                        },
+                        {
+                            "headers": {},
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "DELETE",
+                            "thinkTime": "",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_Cart_Remove_from_Cart.undefined",
+                            "label": "Remove_from_Cart",
+                            "url": "{baseUrl}/api/cart/remove?productId=1"
+                        },
+                        {
+                            "headers": {},
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "DELETE",
+                            "thinkTime": "0",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_Cart_.text",
+                            "label": "",
+                            "url": ""
+                        },
+                        {
+                            "headers": {},
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "DELETE",
+                            "thinkTime": "",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_Cart_Clear_Cart.undefined",
+                            "label": "Clear_Cart",
+                            "url": "{baseUrl}/api/cart/clear"
+                        },
+                        {
+                            "headers": {},
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "DELETE",
+                            "thinkTime": "0",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_Cart_.text",
+                            "label": "",
+                            "url": ""
+                        }
+                    ],
+                    "steps": [],
+                    "order": 2
+                },
+                "AddToBag": {
+                    "enable": true,
+                    "requests": [
+                        {
+                            "headers": {},
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "POST",
+                            "thinkTime": "",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_AddToBag_AddToBag.undefined",
+                            "label": "AddToBag",
+                            "url": "{baseUrl}/api/cart/add?productId=1&quantity=2"
+                        },
+                        {
+                            "headers": {},
+                            "postResponse": {
+                                "inline": ""
+                            },
+                            "condition": [],
+                            "method": "POST",
+                            "thinkTime": "0",
+                            "preRequest": {
+                                "inline": ""
+                            },
+                            "inlineRequests": [],
+                            "enable": true,
+                            "bodyFile": "Snapify_REST_API_AddToBag_.text",
+                            "label": "",
+                            "url": ""
+                        }
+                    ],
+                    "steps": [],
+                    "order": 6
+                }
+            },
+            "scriptType": "c",
+            "assertions": [],
+            "state": "MANUAL",
+            "parameters": {
+                "json": [
+                    {
+                        "redirectionDepth": "Last",
+                        "idxVal": "1",
+                        "RetainPreValue": ",RETAINPREVALUE=\"YES\"",
+                        "tempOrdValue": ", ORD=1",
+                        "parameter-name": "paramName",
+                        "oRDName": "index",
+                        "label": "PAGE=Login_User",
+                        "actionOnNotFound": "",
+                        "convertValue": "",
+                        "saveoffSet": "0",
+                        "saveLength": "0",
+                        "lbValue": "jsonKey",
+                        "regStrLine": "nsl_json_var(paramName, PAGE=Login_User, OBJECT_PATH=\"root.jsonKey\", ORD=1, SaveOffset=0, EncodeMode=None);"
+                    }
+                ],
+                "scratch": [
+                    {
+                        "parameter-name": "baseUrl",
+                        "defaultValue": "https://netcloud4-15-u24.cav-test.com:8080/",
+                        "regStrLine": "nsl_decl_var(baseUrl,DefaultValue=\"https://netcloud4-15-u24.cav-test.com:8080/\",RETAINPREVALUE=\"NO\");",
+                        "isIncomplete": "false"
+                    },
+                    {
+                        "parameter-name": "username",
+                        "defaultValue": "John Doe",
+                        "regStrLine": "nsl_decl_var(username,DefaultValue=\"John Doe\",RETAINPREVALUE=\"NO\");"
+                    },
+                    {
+                        "parameter-name": "user_email",
+                        "defaultValue": "john.doe@example.com",
+                        "regStrLine": "nsl_decl_var(user_email,DefaultValue=\"john.doe@example.com\",RETAINPREVALUE=\"NO\");"
+                    },
+                    {
+                        "parameter-name": "product_query",
+                        "defaultValue": "laptop",
+                        "regStrLine": "nsl_decl_var(product_query,DefaultValue=\"laptop\",RETAINPREVALUE=\"NO\");"
+                    },
+                    {
+                        "parameter-name": "userId",
+                        "defaultValue": "",
+                        "regStrLine": "nsl_decl_var(userId,RETAINPREVALUE=\"NO\");"
+                    }
+                ]
+            },
+            "genCapacity": 0,
+            "order": 0
+        }
+    },
+    "lastModifedTime": "08/07/2026 06:57:27",
+    "info": "This is auto generated scenario configuration JSON created by UI. You should not manually edit this file as any syntax error may result in loss of complete configuration. If you make any changes, you must run following program to validate and convert to scenario file used for the running test: nsu_json_to_cav_script  -p <project>/<sub-project>/<scenario_name> -u <username> -s <work space> (e.g admin/system or <username>/<profile>)",
+    "id": "ff161731541c416291eb0feba555ac31"
+}
