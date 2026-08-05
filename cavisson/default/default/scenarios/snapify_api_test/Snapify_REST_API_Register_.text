@@ -1,0 +1,6 @@
+{
+  "name": "{username}",
+  "email": "{user_email}",
+  "password": "password123",
+  "confirmPassword": "password123"
+}
