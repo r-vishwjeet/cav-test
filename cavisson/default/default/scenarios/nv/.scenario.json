@@ -1,0 +1,94 @@
+{
+  "configuration": {
+    "testname": "default/default/nv"
+  },
+  "schedule": [
+    {
+      "duration": "00:01:00",
+      "script": "G1",
+      "concurrency": "1"
+    }
+  ],
+  "scripts": {
+    "G1": {
+      "flows": {},
+      "scriptType": "",
+      "scriptMode": "visual",
+      "order": 0,
+      "genCapacity": 0,
+      "assertionsV2": [],
+      "runlogic": [],
+      "state": "MANUAL",
+      "recordingProfile": "default.prof"
+    }
+  },
+  "scenario": {
+    "ENABLE_LOG_MGR": {
+      "_G": [
+        [
+          "0"
+        ]
+      ]
+    },
+    "ENABLE_AUTO_JSON_MONITOR": {
+      "_G": [
+        [
+          "0"
+        ]
+      ]
+    },
+    "SGRP": {
+      "_G": [
+        [
+          "G1",
+          "NA",
+          "NA",
+          "Internet",
+          "0",
+          "server_only_script",
+          "1"
+        ]
+      ]
+    },
+    "ENABLE_OUTBOUND_CONNECTION": {
+      "_G": [
+        [
+          "0"
+        ]
+      ]
+    },
+    "ENABLE_TMPFS_IN_DBU": {
+      "_G": [
+        [
+          "0",
+          "0"
+        ]
+      ]
+    },
+    "G_SESSION_PACING": {
+      "ALL": [
+        [
+          "1",
+          "0",
+          "600000"
+        ]
+      ]
+    },
+    "TNAME": {
+      "_G": [
+        [
+          "Monitoring_Session"
+        ]
+      ]
+    },
+    "ENABLE_PROGRESS_REPORT": {
+      "_G": [
+        [
+          "0"
+        ]
+      ]
+    }
+  },
+  "description": "",
+  "priority": ""
+}

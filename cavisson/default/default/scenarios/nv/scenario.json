@@ -1,0 +1,89 @@
+{
+  "schedule": [
+    {
+      "duration": "00:01:00",
+      "script": "G1",
+      "concurrency": 1
+    }
+  ],
+  "configuration": {
+    "testname": "default/default/nv"
+  },
+  "scenario": {
+    "ENABLE_LOG_MGR": {
+      "_G": [
+        [
+          "0"
+        ]
+      ]
+    },
+    "ENABLE_AUTO_JSON_MONITOR": {
+      "_G": [
+        [
+          "0"
+        ]
+      ]
+    },
+    "SGRP": {
+      "_G": [
+        [
+          "G1",
+          "NA",
+          "NA",
+          "Internet",
+          "0",
+          "server_only_script",
+          "1"
+        ]
+      ]
+    },
+    "ENABLE_OUTBOUND_CONNECTION": {
+      "_G": [
+        [
+          "0"
+        ]
+      ]
+    },
+    "ENABLE_TMPFS_IN_DBU": {
+      "_G": [
+        [
+          "0",
+          "0"
+        ]
+      ]
+    },
+    "G_SESSION_PACING": {
+      "ALL": [
+        [
+          "1",
+          "0",
+          "600000"
+        ]
+      ]
+    },
+    "TNAME": {
+      "_G": [
+        [
+          "Monitoring_Session"
+        ]
+      ]
+    },
+    "ENABLE_PROGRESS_REPORT": {
+      "_G": [
+        [
+          "0"
+        ]
+      ]
+    }
+  },
+  "lastModifedBy": "Vishwjeet",
+  "scripts": {
+    "G1": {
+      "flows": {},
+      "order": 0
+    }
+  },
+  "version": "1.0",
+  "lastModifedTime": "17/08/2026 09:36:32",
+  "info": "This is auto generated scenario configuration JSON created by UI. You should not manually edit this file as any syntax error may result in loss of complete configuration. If you make any changes, you must run following program to validate and convert to scenario file used for the running test: nsu_json_to_cav_script  -p <project>/<sub-project>/<scenario_name> -u <username> -s <work space> (e.g admin/system or <username>/<profile>)"
+}
